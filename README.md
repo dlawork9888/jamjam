@@ -1,7 +1,10 @@
-앱 만들기만 했습니다.
-- flip_detection
-- sleep_detection
+### 회원가입/로그인 API 테스트까지 완료
+1. 회원가입 시 받아오는 정보
 
-user 앱 완료 후 호다닥 진행 예정
+-> name, nickname, email, phone_num, child_name, child_birth, child_gender, password
 
-(정아 이거 끌어다가 작업하세요)
+2. 로그인 시 사용하는 필드명
+
+ ->  nickname, password
+
+3. 아이 생년월일 입력 받으면, 개월수 계산하는 함수 추가(age_in_months)

@@ -19,6 +19,7 @@ from django.urls import path, include # include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('user/', include('user.urls')), #user/urls.py
     path('flip_detection/', include('flip_detection.urls')), # flip_detection/urls.py
     path('sleep_detection/', include('sleep_detection.urls')), # sleep_detection/urls.py
 ]

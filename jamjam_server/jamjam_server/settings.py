@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta # 토큰 인증 시간 조절 목적
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,8 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'rest_framework',
+    'rest_framework_simplejwt',
+    "user", # user 앱 추가
     "flip_detection", # flip_detection 앱 추가
-    "sleep_detection" # sleep_detection 앱 추가
+    "sleep_detection", # sleep_detection 앱 추가
 ]
 
 MIDDLEWARE = [
@@ -51,7 +55,14 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# CORS 추가
+CORS_ORIGIN_WHITELIST = (
+    'http://127.0.0.1:8000', 'http://localhost:3000')
+CORS_ALLOW_CREDENTIALS = True
+
 ROOT_URLCONF = "jamjam_server.urls"
+
+AUTH_USER_MODEL = 'user.User'
 
 TEMPLATES = [
     {
@@ -103,19 +114,38 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',  # 인증된 요청인지 확인
+        'rest_framework.permissions.IsAdminUser',  # 관리자만 접근 가능
+        'rest_framework.permissions.AllowAny',  # 누구나 접근 가능
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT를 통한 인증방식 사용
+    ),
+}
+# 자동 생성 필드 명을 user_id로 바꿔주면 아래 코드 필요
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),  # 액세스 토큰의 유효 시간을 1일로 설정
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # 리프레시 토큰의 유효 시간을 1일로 설정
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'USER_ID_FIELD': 'user_id',
+    'USER_ID_CLAIM': 'user_id',
+}
+REST_USE_JWT = True
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = 'ko'
 
-TIME_ZONE = "UTC"
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
-
-USE_TZ = True
-
-
+USE_L10N = True
+USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
