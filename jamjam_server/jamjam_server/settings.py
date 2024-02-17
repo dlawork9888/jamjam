@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "flip_detection", # flip_detection 앱 추가
-    "sleep_detection"
+    "sleep_detection" # sleep_detection 앱 추가
 ]
 
 MIDDLEWARE = [
@@ -75,6 +75,8 @@ WSGI_APPLICATION = "jamjam_server.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
+### DB는 모든 로직이 테스트된 후 연결하도록 합시다 !
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",

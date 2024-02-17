@@ -1,3 +1,3 @@
-from django.shortcuts import render
+# sleep_detection/views.py
 
-# Create your views here.
+from django.shortcuts import render
