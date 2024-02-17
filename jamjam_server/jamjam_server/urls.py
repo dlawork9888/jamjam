@@ -19,5 +19,4 @@ from django.urls import path, include # include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("flipdetection/", include('flipdetection.urls')), # flipdetection url 추가
 ]

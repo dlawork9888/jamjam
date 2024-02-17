@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "flipdetection",
+    "flip_detection", # flip_detection 앱 추가
+    "sleep_detection"
 ]
 
 MIDDLEWARE = [
