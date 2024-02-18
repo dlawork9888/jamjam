@@ -43,3 +43,8 @@ class UserInfoSerializer(serializers.ModelSerializer):
         birth_date = obj.child_birth
         age_in_months = relativedelta(current_date, birth_date).years * 12 + relativedelta(current_date, birth_date).months
         return age_in_months
+
+# LoginSerializer 추가 (dlawork9888)
+class LoginSerializer(serializers.Serializer):
+    nickname = serializers.CharField()
+    password = serializers.CharField(write_only=True)

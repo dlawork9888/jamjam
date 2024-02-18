@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include # include
 
@@ -32,7 +33,6 @@ schema_view = get_schema_view(
     public=True,
     permission_classes=[AllowAny] # Swagger에는 인증 필요없도록 설정
 ) 
-
 
 ### url patterns
 urlpatterns = [
