@@ -28,7 +28,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="jamjam-AI",
         default_version="v0",
-        description="이제는 POSTMAN 안써도 돼 !",
+        description="이제는 POSTMAN 안써도 돼 ! \n  Auth Token 입력 시 꼭 앞에 Bearer + ' '를 붙여야합니다!",
     ),
     public=True,
     permission_classes=[AllowAny] # Swagger에는 인증 필요없도록 설정

@@ -14,7 +14,12 @@ from drf_yasg import openapi
 class FlipDetectionAPIView(APIView):
     # for swagger api test
     @swagger_auto_schema(
+        # API 상세 설명
+        operation_description = 'Flip Detection Record Post 요청\n***주의! => Authorization에 토큰 입력 시 꼭 "Bearer {token}"형태로 넣어주세요!',
+        # Request Body Parameter <= Serializer
         request_body=FlipDetectionSerializer,
+        # Bearer Token 입력
+        ### !!! 꼭 토큰 앞에 {Bearer + ' '}를 붙여야 함 !!!
         manual_parameters=[
             openapi.Parameter(
                 'Authorization',
