@@ -20,3 +20,7 @@
 - 다만 swagger api test는 아직 불완전합니다.
 - 우선은 엔드포인트, request 형식 정도만 참고해주시고 POSTMAN을 계속 이용해주세요.
 - Swagger 상의 Bearer 인증은 빠르게 완료하거나 아님 그냥 버리겠습니다(POSTMAN 좋네요).
+
+### Swagger 상에서 바로 API 요청 가능! (02.20)
+- 문서 상에서 바로 요청 가능합니다.
+- *주의! -> Authorization에 토큰 입력 시 앞에 {Bearer + ' '}를 붙여주세요!
